@@ -1,5 +1,4 @@
-import { randomUUID } from "crypto";
-
+import { v4 } from "uuid";
 export interface IChat {
   id: string;
   title: string;
@@ -8,19 +7,19 @@ export interface IChat {
 
 export const chatsMock: IChat[] = [
   {
-    id: randomUUID(),
+    id: v4(),
     title: "Testando 123",
   },
   {
-    id: randomUUID(),
+    id: v4(),
     title: "Pesquisa Interessante",
   },
   {
-    id: randomUUID(),
+    id: v4(),
     title: "Alguma coisa interessante",
   },
   {
-    id: randomUUID(),
+    id: v4(),
     title: "Uhuul",
   },
 ];
