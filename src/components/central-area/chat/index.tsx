@@ -15,7 +15,7 @@ export const Chat = ({ chatId, messages }: Props) => {
                 <>
                   {message.byUser && (
                     <div className="flex justify-end p-2">
-                      <p className="inline-block bg-blue-500 text-white p-2 rounded-full mr-28">
+                      <p className="inline-block bg-blue-500 max-w-[50%] text-white p-2 rounded-xl mr-28">
                         {message.content}
                       </p>
                     </div>
