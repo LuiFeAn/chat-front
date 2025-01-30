@@ -14,7 +14,7 @@ export const Chats = ({ open }: Props) => {
             {chats.map((chat) => (
               <li
                 onClick={() => handleOnClickChat(chat.id)}
-                className="mt-2 hover:bg-[#ECECEC] cursor-pointer p-1 text-sm"
+                className="mt-2 hover:bg-[#ECECEC] cursor-pointer p-1 text-sm select-none"
               >
                 {chat.title}
               </li>
