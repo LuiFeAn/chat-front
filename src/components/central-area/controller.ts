@@ -9,8 +9,9 @@ export const useCentralAreaController = () => {
   const handlePrompCommand = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
     setPrompt(event.target.value);
 
-  const handleOnFormSubmit = async (event: FormEvent<HTMLFormElement>) =>
+  const handleOnFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+  };
 
   return {
     id,
