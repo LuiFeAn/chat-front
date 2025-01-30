@@ -8,7 +8,7 @@ export const Chat = ({ chatId, messages }: Props) => {
   return (
     <>
       {messages.length > 0 && (
-        <div className="w-full h-[80%] overflow-auto">
+        <div className="w-full h-[100%] overflow-auto mt-20">
           {chatId && (
             <>
               {messages.map((message) => (
