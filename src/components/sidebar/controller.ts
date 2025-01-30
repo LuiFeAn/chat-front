@@ -10,7 +10,7 @@ export const useSideBarController = () => {
     if (!isMenuOpen) {
       return "w-[0%] bg-transparent";
     }
-    return "w-[15%]";
+    return "w-[18%]";
   };
 
   return {
