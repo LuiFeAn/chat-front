@@ -13,12 +13,12 @@ export const useCentralAreaController = () => {
 
   const Nav = useNavigate();
 
-  const handleAddNewMessages = (message: string) =>
+  const handleAddNewMessages = (message: string, byUser: boolean = true) =>
     setMessages((prevState) => [
       ...prevState,
       {
         content: message,
-        byUser: true,
+        byUser,
       },
     ]);
 
@@ -34,6 +34,10 @@ export const useCentralAreaController = () => {
       }
 
       handleAddNewMessages(promp);
+      handleAddNewMessages(
+        "Olá essa é uma mensagem pré-determinada. Ainda não estou integrado a um API.",
+        false
+      );
       setPrompt("");
     }
   };
