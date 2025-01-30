@@ -14,16 +14,17 @@ export const useCentralAreaController = () => {
       ...prevState,
       {
         content: message,
+        byUser: true,
       },
     ]);
 
   const handlePrompCommand = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
-    setPrompt(event.target.value);
+    setPrompt(event.target.value.trim());
 
   const handleKeyDown = async (
     event: React.KeyboardEvent<HTMLTextAreaElement>
   ) => {
-    if (event.key === "Enter" && !event.shiftKey) {
+    if (promp.length > 1 && event.key === "Enter" && !event.shiftKey) {
       handleAddNewMessages(promp);
       setPrompt("");
     }
