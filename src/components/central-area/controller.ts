@@ -31,7 +31,6 @@ export const useCentralAreaController = () => {
     if (promp.length > 1 && event.key === "Enter" && !event.shiftKey) {
       if (!id) {
         Nav(`/${v4()}`);
-        return;
       }
 
       handleAddNewMessages(promp);
