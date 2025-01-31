@@ -1,5 +1,6 @@
 export const usePromptService = () => {
-  const apiUrl = import.meta.env.VITE_API_KEY;
+  const apiUrl = import.meta.env.VITE_API_URL;
+  console.log(apiUrl);
   const sendPrompt = async (prompt: string) => {
     const response = await fetch(apiUrl, {
       method: "POST",
