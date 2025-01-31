@@ -1,12 +1,14 @@
 interface Props {
   onSubmit(event: React.KeyboardEvent<HTMLTextAreaElement>): Promise<void>;
   onChange(event: React.ChangeEvent<HTMLTextAreaElement>): void;
+  sendingPrompt: boolean;
   messagesLenght: number;
   value: string;
 }
 
 export const ChatInput = ({
   value,
+  sendingPrompt,
   messagesLenght,
   onChange,
   onSubmit,
@@ -18,6 +20,8 @@ export const ChatInput = ({
       )}
       <textarea
         value={value}
+        disabled={sendingPrompt}
+        autoFocus={sendingPrompt}
         onChange={onChange}
         onKeyDown={(event) => onSubmit(event)}
         placeholder="Envie uma mensagem"

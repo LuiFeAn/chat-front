@@ -3,13 +3,18 @@ import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 import IMessage from "./interfaces/messages.interface";
 import { v4 } from "uuid";
+import { usePromptService } from "./chat-input/chat.service";
 
 export const useCentralAreaController = () => {
   const { id } = useParams();
 
+  const { sendPrompt } = usePromptService();
+
   const [messages, setMessages] = useState<IMessage[]>([]);
 
   const [promp, setPrompt] = useState("");
+
+  const [sendingPrompt, setSedingingPrompt] = useState<boolean>(false);
 
   const Nav = useNavigate();
 
@@ -23,7 +28,7 @@ export const useCentralAreaController = () => {
     ]);
 
   const handlePrompCommand = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
-    setPrompt(event.target.value.trim());
+    setPrompt(event.target.value);
 
   const handleKeyDown = async (
     event: React.KeyboardEvent<HTMLTextAreaElement>
@@ -33,12 +38,24 @@ export const useCentralAreaController = () => {
         Nav(`/${v4()}`);
       }
 
+      setSedingingPrompt(true);
+
       handleAddNewMessages(promp);
-      handleAddNewMessages(
-        "Olá essa é uma mensagem pré-determinada. Ainda não estou integrado a um API.",
-        false
-      );
+
       setPrompt("");
+
+      try {
+        const response = await sendPrompt(promp);
+
+        handleAddNewMessages(response, false);
+      } catch {
+        handleAddNewMessages(
+          "Ops! parece que não estou conectado a nenhuma API no momento.",
+          false
+        );
+      }
+
+      setSedingingPrompt(false);
     }
   };
 
@@ -47,6 +64,7 @@ export const useCentralAreaController = () => {
   return {
     id,
     promp,
+    sendingPrompt,
     messages,
     handlePrompCommand,
     handleKeyDown,
