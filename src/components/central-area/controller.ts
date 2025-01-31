@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import IMessage from "./interfaces/messages.interface";
 import { v4 } from "uuid";
@@ -31,7 +31,7 @@ export const useCentralAreaController = () => {
     for (let i = 0; i < message.length; i++) {
       typedMessage += message[i];
       setCurrentMessage(typedMessage);
-      await new Promise((resolve) => setTimeout(resolve, 50));
+      await new Promise((resolve) => setTimeout(resolve, 40));
     }
     setMessages((prevState) => [
       ...prevState,
@@ -70,8 +70,6 @@ export const useCentralAreaController = () => {
       setSendingPrompt(false);
     }
   };
-
-  useEffect(() => {}, [currentMessage]);
 
   return {
     id,
