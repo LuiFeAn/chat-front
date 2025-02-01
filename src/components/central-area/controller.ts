@@ -61,9 +61,8 @@ export const useCentralAreaController = () => {
         const response = await sendPrompt(promp);
         await typeMessage(response);
       } catch {
-        handleAddNewMessages(
-          "Ops! parece que não estou conectado a nenhuma API no momento.",
-          false
+        await typeMessage(
+          "Ops! parece que não estou conectado a nenhuma API no momento."
         );
       }
 
