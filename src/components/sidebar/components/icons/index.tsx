@@ -11,11 +11,11 @@ export const SideBarIcons = ({ onClickMenu }: Props) => {
         onClick={onClickMenu}
         size={25}
         className="animate-pulse cursor-pointer absolute"
-        color="black"
+        color="white"
       />
       <div className="flex gap-4 mr-4 w-full justify-end">
-        <Search size={20} className="cursor-pointer" />
-        <MessageCircleMore size={20} className="cursor-pointer" />
+        <Search color="white" size={20} className="cursor-pointer" />
+        <MessageCircleMore color="white" size={20} className="cursor-pointer" />
       </div>
     </div>
   );

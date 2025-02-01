@@ -4,9 +4,11 @@ import { Chat } from "../pages/chat";
 
 export const ApplicationRoutes = () => {
   return (
-    <Routes>
+   <div className="bg-[#212121]">
+     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/:id" element={<Chat />} />
     </Routes>
+    </div>
   );
 };

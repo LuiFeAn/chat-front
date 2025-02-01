@@ -8,7 +8,7 @@ export const SideBar = () => {
 
   return (
     <aside
-      className={`bg-[#F9F9F9] pl-2 pt-2 border-r border-gray-200 transition-all h-screen ${handleAsidePosition()}`}
+      className={`bg-[#171717] pl-2 pt-2  transition-all h-screen ${handleAsidePosition()}`}
     >
       <SideBarIcons onClickMenu={handleOnClickMenu} />
       <Chats open={isMenuOpen} />
